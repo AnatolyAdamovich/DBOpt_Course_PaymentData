@@ -1,3 +1,0 @@
-DECLARE @p INT = 1912984819;
-INSERT INTO Payment (Oid, Amount, Category, Project, Justification, Comment, Date, Payer, Payee, OptimisticLockField, GCRecord, CreateDate, CheckNumber, IsAuthorized, Number)
-    VALUES (NEWID(), ROUND(RAND() * 100000, 0), (SELECT TOP 1 Oid FROM PaymentCategory ORDER BY NEWID()), (SELECT TOP 1 Oid FROM Project ORDER BY NEWID()), 'Justification ' + CAST(@p AS VARCHAR(10)), 'Comment ' + CAST(@p AS VARCHAR(10)), DATEADD(day, ROUND(RAND() * 365, 0), '2022-01-01'), (SELECT TOP 1 Oid FROM PaymentParticipant ORDER BY NEWID()), (SELECT TOP 1 Oid FROM PaymentParticipant ORDER BY NEWID()), 1, NULL, DATEADD(day, ROUND(RAND() * 365, 0), '2022-01-01'), 'Check ' + CAST(@p AS VARCHAR(10)), ROUND(RAND(), 0), 'Number ' + CAST(@p AS VARCHAR(10)))
